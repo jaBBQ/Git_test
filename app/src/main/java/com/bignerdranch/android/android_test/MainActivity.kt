@@ -29,6 +29,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
         hello?.setOnClickListener(this)
     }
 
+    fun add(a : Int, b : Int) : Int{
+        return a + b
+    }
+
     override fun onClick(v: View?) {
         val id = v?.id
         when(id){
@@ -42,6 +46,5 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
                 hello?.setText("world")
             }
         }
-
     }
 }
