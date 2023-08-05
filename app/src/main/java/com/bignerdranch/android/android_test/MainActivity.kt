@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
                 hello?.isEnabled = false
             }
             R.id.btn_2 -> {
-                hello?.isEnabled = true
+                hello?.isEnabled = false
             }
             R.id.hello -> {
                 hello?.setText("world")
