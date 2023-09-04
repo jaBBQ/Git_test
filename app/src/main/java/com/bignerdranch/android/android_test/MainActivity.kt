@@ -1,50 +1,55 @@
 package com.bignerdranch.android.android_test
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.TextureView
-import android.view.View
-import android.view.View.OnLongClickListener
-import android.view.ViewGroup
+import android.os.Handler
+import android.os.Looper
+import android.os.Message
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.bignerdranch.android.android_test.util.Utils
+import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : AppCompatActivity(), View.OnClickListener{
-    var btn_1 : Button? = null
-    var btn_2 : Button? = null
-    var hello : Button? = null
+
+class MainActivity : AppCompatActivity(){
+    private var btn : Button? = null
+    var tv_content : TextView? = null
+    private var handler : Handler = object : Handler(Looper.getMainLooper()) {
+        override fun handleMessage(msg: Message) {
+            super.handleMessage(msg)
+            when(msg.what) {
+                0 -> {
+                    tv_content?.text = msg.obj.toString()
+                }
+            }
+            showToast()
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        btn_1 = findViewById<Button>(R.id.btn_1)
-        btn_2 = findViewById<Button>(R.id.btn_2)
-        hello = findViewById<Button>(R.id.hello)
-        btn_1?.setOnClickListener(this)
-        btn_2?.setOnClickListener(this)
-        hello?.setOnClickListener(this)
-    }
-
-    fun add(a : Int, b : Int) : Int{
-        return a + b
-    }
-
-    override fun onClick(v: View?) {
-        val id = v?.id
-        when(id){
-            R.id.btn_1 -> {
-                hello?.isEnabled = false
-            }
-            R.id.btn_2 -> {
-                hello?.isEnabled = false
-            }
-            R.id.hello -> {
-                hello?.setText("world")
-            }
+        btn = findViewById(R.id.btn)
+        tv_content = findViewById(R.id.tv_content)
+        btn?.setOnClickListener {
+            Thread(Runnable {
+                work()
+            }).start()
         }
+    }
+
+    fun showToast() {
+        Toast.makeText(this,"done", Toast.LENGTH_SHORT).show()
+    }
+
+    fun work() {
+        var str = ""
+        for (i in 1..5) {
+            str += i.toString()
+        }
+        Thread.sleep(6000)
+        var msg : Message = Message()
+        msg.what = 0
+        msg.obj = str
+        handler.sendMessage(msg)
     }
 }
