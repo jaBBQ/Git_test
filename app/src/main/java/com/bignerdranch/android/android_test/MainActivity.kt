@@ -1,28 +1,29 @@
 package com.bignerdranch.android.android_test
 
+import android.animation.ValueAnimator
+import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
+import android.os.Handler
+import android.os.HandlerThread
+import android.os.Message
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
+
 class MainActivity : AppCompatActivity(){
-    private var btn : Button? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        btn = findViewById(R.id.btn)
-        val tv_content = findViewById<TextView>(R.id.tv_content)
-        val thread = Thread {
-            Thread.sleep(6000)
-            runOnUiThread {
-                tv_content.text = "已完成"
-            }
-        }
-        btn?.setOnClickListener {
-            Toast.makeText(this,"开始",Toast.LENGTH_SHORT).show()
-            thread.start()
-            Toast.makeText(this,"完成",Toast.LENGTH_SHORT).show()
+        val tv : TextView  = findViewById(R.id.tv)
+        tv.text = "hello world"
+        val button : Button = findViewById(R.id.button)
+        button.setOnClickListener {
+            val intent : Intent = Intent()
+            intent.setClass(this,MainActivity2::class.java)
+            startActivity(intent)
         }
     }
 }
