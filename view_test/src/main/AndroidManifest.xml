@@ -9,7 +9,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Android_test">
         <activity
-            android:name=".TextColorActivity"
+            android:name=".ViewGravityActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ViewMarginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ViewBorderActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
