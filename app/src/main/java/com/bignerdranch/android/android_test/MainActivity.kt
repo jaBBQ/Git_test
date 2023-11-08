@@ -1,50 +1,28 @@
 package com.bignerdranch.android.android_test
 
-import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
+import android.animation.ValueAnimator
+import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
-import android.view.TextureView
-import android.view.View
-import android.view.View.OnLongClickListener
-import android.view.ViewGroup
+import android.os.Handler
+import android.os.HandlerThread
+import android.os.Message
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.bignerdranch.android.android_test.util.Utils
+import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : AppCompatActivity(), View.OnClickListener{
-    var btn_1 : Button? = null
-    var btn_2 : Button? = null
-    var hello : Button? = null
+
+class MainActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        btn_1 = findViewById<Button>(R.id.btn_1)
-        btn_2 = findViewById<Button>(R.id.btn_2)
-        hello = findViewById<Button>(R.id.hello)
-        btn_1?.setOnClickListener(this)
-        btn_2?.setOnClickListener(this)
-        hello?.setOnClickListener(this)
-    }
-
-    fun add(a : Int, b : Int) : Int{
-        return a + b
-    }
-
-    override fun onClick(v: View?) {
-        val id = v?.id
-        when(id){
-            R.id.btn_1 -> {
-                hello?.isEnabled = false
-            }
-            R.id.btn_2 -> {
-                hello?.isEnabled = false
-            }
-            R.id.hello -> {
-                hello?.setText("world")
-            }
-        }
+        val tv : TextView  = findViewById(R.id.tv)
+        tv.text = "hello world"
+        val button : Button = findViewById(R.id.button)
+        button.setOnClickListener {
+            val intent : Intent = Intent()
+            intent.setClass(this,MainActivity2::class.java)
+            startActivity(intent)
     }
 }
