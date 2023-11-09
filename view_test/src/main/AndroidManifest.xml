@@ -22,7 +22,7 @@
             android:name=".ViewMarginActivity"
             android:exported="false" />
         <activity
-            android:name=".ScrollViewActivity"
+            android:name=".ButtonStyleActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
