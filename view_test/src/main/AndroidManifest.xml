@@ -22,7 +22,7 @@
             android:name=".ViewMarginActivity"
             android:exported="false" />
         <activity
-            android:name=".ButtonStyleActivity"
+            android:name=".ButtonEnableActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

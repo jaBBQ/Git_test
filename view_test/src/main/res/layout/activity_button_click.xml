@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ButtonClickActivity"
+    android:orientation="vertical">
+    <Button
+        android:id="@+id/btn_click_single"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="指定单独的点击监听器"
+        android:textColor="@color/black"
+        android:textSize="15sp"/>
+
+    <Button
+        android:id="@+id/btn_long_click"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="长按点击按钮"
+        android:textColor="@color/black"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/tv_click"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="响应点击事件"
+        android:textSize="15sp"
+        android:gravity="center"
+        />
+
+</LinearLayout>
