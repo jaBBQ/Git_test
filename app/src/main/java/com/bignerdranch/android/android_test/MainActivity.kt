@@ -21,8 +21,9 @@ class MainActivity : AppCompatActivity(){
         tv.text = "hello world"
         val button : Button = findViewById(R.id.button)
         button.setOnClickListener {
-            val intent : Intent = Intent()
-            intent.setClass(this,MainActivity2::class.java)
+            val intent: Intent = Intent()
+            intent.setClass(this, MainActivity2::class.java)
             startActivity(intent)
+        }
     }
 }
