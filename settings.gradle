@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 rootProject.name = "Android_test"
 include ':app'
 include ':view_test'
+include ':activity_test'
