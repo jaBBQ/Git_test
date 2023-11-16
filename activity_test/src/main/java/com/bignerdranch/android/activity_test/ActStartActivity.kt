@@ -1,11 +1,13 @@
 package com.bignerdranch.android.activity_test
 
+import android.content.ComponentName
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import androidx.core.view.KeyEventDispatcher.Component
 
 class ActStartActivity : AppCompatActivity(), View.OnClickListener {
     companion object {
@@ -19,7 +21,15 @@ class ActStartActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        startActivity(Intent(this, ActFinishActivity::class.java))
+//        1. 构造函数
+//        val intent : Intent = Intent(this, ActFinishActivity::class.java)
+//        2. 调用对象的setClass方法指定
+        val intent : Intent = Intent()
+//        intent.setClass(this, ActFinishActivity::class.java)
+//        3. 调用意图对象的setComponent方法指定
+        val component : ComponentName = ComponentName(this, ActFinishActivity::class.java)
+        intent.setComponent(component)
+        startActivity(intent)
     }
 
     override fun onStart() {
