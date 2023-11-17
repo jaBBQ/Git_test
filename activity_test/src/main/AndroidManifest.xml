@@ -9,6 +9,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Android_test">
         <activity
+            android:name=".ReadStringActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ActResponseActivity"
+            android:exported="false" />
+        <activity
             android:name=".ActReceiveActivity"
             android:exported="false" />
         <activity
@@ -17,18 +23,29 @@
         <activity
             android:name=".JumpSecondActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".JumpFirstActivity"
+            android:exported="true" />
         <activity
             android:name=".ActFinishActivity"
             android:exported="false" />
         <activity
-            android:name=".ActSendActivity"
+            android:name=".MetaDataActivity"
             android:exported="true"
             android:launchMode="standard">
+
+            <meta-data android:name="weather" android:value="晴天 "/>
+        </activity>
+        <activity
+            android:name=".ActStartActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts"/>
         </activity>
     </application>
 
