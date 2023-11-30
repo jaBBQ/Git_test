@@ -16,3 +16,4 @@ rootProject.name = "Android_test"
 include ':app'
 include ':view_test'
 include ':activity_test'
+include ':drawable_test'
